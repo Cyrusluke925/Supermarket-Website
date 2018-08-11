@@ -48,30 +48,34 @@ var candy = [
 var divTag = document.createElement('div');
 var pTag = document.createElement('p');
 var optionsPage = document.getElementById('options')
+var images = document.getElementsByTagName('img')
 
 //link tabs 
 
 var alcoholTab = document.getElementById('Alcohol');
 var candyTab = document.getElementById('Candy');
 var cerealTab = document.getElementById('Cereal');
+var mainTag = document.getElementsByTagName('main');
 
 function alcoholPage() {
-
-    console.log(alcohol)
-        optionsPage.removeChild('divTag')
+if (images.length !== 0 ) {
+    divTag.innerHTML = "";
+    } 
     for (let i = 0; i < alcohol.length; i += 1) {
-    
         var currentDrink = alcohol[i];
-        var liquid = document.createElement('img')
-        liquid.setAttribute('src', currentDrink.picture);
-        divTag.appendChild(liquid);
+        var item = document.createElement('img')
+        item.setAttribute('src', currentDrink.picture);
+        divTag.appendChild(item);
         optionsPage.appendChild(divTag);
-
+    
     }
 }
 
 function candyPage() {
     console.log(candy)
+    if (images.length !== 0 ) {
+        divTag.innerHTML = "";
+        } 
     for(let i = 0;i < candy.length; i += 1) {
     let currentItem = candy[i];
     let item = document.createElement('img');
@@ -79,7 +83,7 @@ function candyPage() {
     divTag.appendChild(item);
     optionsPage.appendChild(divTag);
 
-
+    
     }
 }
 
