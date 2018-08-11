@@ -44,6 +44,25 @@ var candy = [
     }
 ]
 
+var gum = [
+    {
+        picture: './pictures/orbit.jpg',
+        name: 'Orbit'
+    },
+    {
+        picture: './pictures/trident.jpeg',
+        name: 'Trident'
+    },
+    {
+        picture: './pictures/stride.jpg',
+        name: 'Stride'
+    },
+    {
+        picture: './pictures/extra.jpg',
+        name: 'Extra'
+    }
+]
+
 // page elements
 var divTag = document.createElement('div')
 
@@ -56,7 +75,7 @@ var images = document.getElementsByTagName('img')
 
 var alcoholTab = document.getElementById('Alcohol');
 var candyTab = document.getElementById('Candy');
-var cerealTab = document.getElementById('Cereal');
+var gumTab = document.getElementById('Gum');
 var mainTag = document.getElementsByTagName('main');
 
 function alcoholPage() {
@@ -79,7 +98,6 @@ if (images.length !== 0 ) {
 }
 
 function candyPage() {
-    console.log(candy)
     if (images.length !== 0 ) {
         divTag.innerHTML = "";
         } 
@@ -98,8 +116,32 @@ function candyPage() {
 }
 
 
+
+function gumPage() {
+    if (images.length !== 0 ) {
+        divTag.innerHTML = "";
+        } 
+    for(let i = 0;i < gum.length; i += 1) {
+    let currentItem = gum[i];
+    let articleTag = document.createElement('article');
+    let item = document.createElement('img');
+    let pTag = document.createElement('p');
+    item.setAttribute('src', currentItem.picture);
+    articleTag.appendChild(item);
+    pTag.innerText = currentItem.name;
+    articleTag.appendChild(pTag);
+    divTag.appendChild(articleTag);
+    optionsPage.appendChild(divTag);
+    }
+}
+
+
+
+
 alcoholTab.addEventListener('click', alcoholPage);
 candyTab.addEventListener('click', candyPage);
+gumTab.addEventListener('click', gumPage);
+
 
 
 
