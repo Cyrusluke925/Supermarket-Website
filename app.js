@@ -15,7 +15,7 @@ var alcohol = [
     },
 
     {
-        picture: './pictures/tequila.jpg',
+        picture: './pictures/tequila.jpeg',
         name: 'Tequila'
     },
 
@@ -45,8 +45,10 @@ var candy = [
 ]
 
 // page elements
-var divTag = document.createElement('div');
-var pTag = document.createElement('p');
+var divTag = document.createElement('div')
+
+
+// var pTag = document.createElement('p');
 var optionsPage = document.getElementById('options')
 var images = document.getElementsByTagName('img')
 
@@ -62,10 +64,15 @@ if (images.length !== 0 ) {
     divTag.innerHTML = "";
     } 
     for (let i = 0; i < alcohol.length; i += 1) {
-        var currentDrink = alcohol[i];
-        var item = document.createElement('img')
+        let currentDrink = alcohol[i];
+        let articleTag = document.createElement('article');
+        let item = document.createElement('img');
+        let pTag = document.createElement('p');
         item.setAttribute('src', currentDrink.picture);
-        divTag.appendChild(item);
+        articleTag.appendChild(item);
+        pTag.innerText = currentDrink.name;
+        articleTag.appendChild(pTag);
+        divTag.appendChild(articleTag);
         optionsPage.appendChild(divTag);
     
     }
@@ -78,12 +85,15 @@ function candyPage() {
         } 
     for(let i = 0;i < candy.length; i += 1) {
     let currentItem = candy[i];
+    let articleTag = document.createElement('article');
     let item = document.createElement('img');
+    let pTag = document.createElement('p');
     item.setAttribute('src', currentItem.picture);
-    divTag.appendChild(item);
+    articleTag.appendChild(item);
+    pTag.innerText = currentItem.name;
+    articleTag.appendChild(pTag);
+    divTag.appendChild(articleTag);
     optionsPage.appendChild(divTag);
-
-    
     }
 }
 
