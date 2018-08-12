@@ -25,12 +25,12 @@ var alcohol = [
 var candy = [
     
     {
-    picture: './pictures/kitkat.jpg',
+    picture: './pictures/kitkat.jpeg',
     name: 'Kit Kat'
     },
 
     {
-        picture: './pictures/starbursts.jpeg',
+        picture: './pictures/starbursts.jpg',
         name: 'Starbursts'
     },
 
@@ -39,7 +39,7 @@ var candy = [
         name: 'Skittles'
     },
     {
-        picture: './pictures/snickers.jpeg',
+        picture: './pictures/snickers.jpg',
         name: 'Snickers'
     }
 ]
@@ -65,6 +65,7 @@ var gum = [
 
 // page elements
 var divTag = document.createElement('div')
+var checkOut = document.getElementById('checkout');
 
 
 // var pTag = document.createElement('p');
@@ -83,16 +84,23 @@ if (images.length !== 0 ) {
     divTag.innerHTML = "";
     } 
     for (let i = 0; i < alcohol.length; i += 1) {
-        let currentDrink = alcohol[i];
+        let currentItem = alcohol[i];
         let articleTag = document.createElement('article');
         let item = document.createElement('img');
         let pTag = document.createElement('p');
-        item.setAttribute('src', currentDrink.picture);
+        item.setAttribute('src', currentItem.picture);
         articleTag.appendChild(item);
-        pTag.innerText = currentDrink.name;
+        pTag.innerText = currentItem.name;
         articleTag.appendChild(pTag);
         divTag.appendChild(articleTag);
         optionsPage.appendChild(divTag);
+
+        articleTag.addEventListener('click', function () {
+            var checkOutTag = document.createElement('h3');
+            checkOutTag.innerText = currentItem.name;
+            checkOut.appendChild(checkOutTag)
+            
+        });
     
     }
 }
@@ -112,6 +120,13 @@ function candyPage() {
     articleTag.appendChild(pTag);
     divTag.appendChild(articleTag);
     optionsPage.appendChild(divTag);
+
+    articleTag.addEventListener('click', function () {
+        var checkOutTag = document.createElement('h3');
+        checkOutTag.innerText = currentItem.name;
+        checkOut.appendChild(checkOutTag)
+        
+    });
     }
 }
 
@@ -132,8 +147,17 @@ function gumPage() {
     articleTag.appendChild(pTag);
     divTag.appendChild(articleTag);
     optionsPage.appendChild(divTag);
+    
+    articleTag.addEventListener('click', function () {
+        var checkOutTag = document.createElement('h3');
+        checkOutTag.innerText = currentItem.name;
+        checkOut.appendChild(checkOutTag)
+        
+    });
+    
     }
 }
+
 
 
 
@@ -147,39 +171,6 @@ gumTab.addEventListener('click', gumPage);
 
 
 
-// var getAlcohol = document.getElementById('candy')
-
-// function changeColor() {
-//     if (this.style.color === 'black') {
-//         this.style.color = 'white';
-//     } else {
-//         this.style.color = 'black';
-//     }
-// }
-
-
-
-// var alcoholSelection = document.createElement('div');
-// var optionSection = document.getElementById('options');
-// var selection = optionSection.appendChild(alcoholSelection);
-
-
-//Alcohol BUTTON
-
-// getAlcohol.addEventListener('click', showAlcohol);
-
-
-// function showAlcohol() {
-// selection.innerHTML = `<a href="#"><img src="./pictures/absolut.jpg" alt="vodka" width=150px></a><p>Vodka</p>
-
-// <a href="#"><img src="./pictures/gin.jpg" width=180px></a><p>gin</p>
-
-// <a href="#"><img src="./pictures/rum.jpg" width= 180px></a><p>rum</p>
-
-// <a href="#"><img src="./pictures/tequila.jpg" width= 150px></a><p>Tequila</p>`
-
-
-// };
 
 
 
