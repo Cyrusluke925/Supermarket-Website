@@ -97,7 +97,7 @@ for (let i = 0; i < tabs.length; i += 1) {
         }
 
         for (let k = 0; k < currentSection.length; k += 1) {
-            var currentItem = currentSection[k];
+            let currentItem = currentSection[k];
             console.log(currentItem);
             let articleTag = document.createElement('article');
             let item = document.createElement('img');
